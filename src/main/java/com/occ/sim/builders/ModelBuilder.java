@@ -15,6 +15,7 @@ public class ModelBuilder {
     }
 
     public ModelBuilder fromVariables(List<Variable> variables) {
+        this.model = new Model();
         for (Variable variable : variables) {
             this.model.add(variable);
         }

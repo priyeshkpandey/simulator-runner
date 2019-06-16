@@ -17,6 +17,7 @@
     <apache.httpcomponents.version>4.5.6</apache.httpcomponents.version>
     <apache.httpcomponents.core.version>4.4.3</apache.httpcomponents.core.version>
     <jackson.version>2.9.9</jackson.version>
+      <maven.exec.plugin.version>1.6.0</maven.exec.plugin.version>
   </properties>
 
     <licenses>
@@ -113,6 +114,9 @@
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.0.0</version>
         </plugin>
+      </plugins>
+    </pluginManagement>
+      <plugins>
           <plugin>
               <groupId>org.apache.maven.plugins</groupId>
               <artifactId>maven-source-plugin</artifactId>
@@ -169,6 +173,5 @@
               </configuration>
           </plugin>
       </plugins>
-    </pluginManagement>
   </build>
 </project>
