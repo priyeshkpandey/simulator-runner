@@ -153,6 +153,21 @@
                   </execution>
               </executions>
           </plugin>
+          <plugin>
+              <groupId>org.codehaus.mojo</groupId>
+              <artifactId>exec-maven-plugin</artifactId>
+              <version>${maven.exec.plugin.version}</version>
+              <executions>
+                  <execution>
+                      <goals>
+                          <goal>java</goal>
+                      </goals>
+                  </execution>
+              </executions>
+              <configuration>
+                  <mainClass>com.occ.sim.main.SimulatorRunner</mainClass>
+              </configuration>
+          </plugin>
       </plugins>
     </pluginManagement>
   </build>
