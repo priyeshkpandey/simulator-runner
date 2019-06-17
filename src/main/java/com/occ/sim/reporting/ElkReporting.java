@@ -20,6 +20,8 @@ public class ElkReporting {
             HttpClient client = HttpClients.createDefault();
             final HttpPost postMethod = new HttpPost("http://" + ELK_HOST + ":" + ELK_PORT + "/" + ELK_KEY);
             final Stat stat = new Stat();
+            stat.setKey(key);
+            stat.setValue(value);
             final String json = new ObjectMapper().writeValueAsString(stat);
             final StringEntity entity = new StringEntity(json);
             postMethod.setEntity(entity);
