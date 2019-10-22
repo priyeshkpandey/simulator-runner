@@ -17,7 +17,8 @@
     <apache.httpcomponents.version>4.5.6</apache.httpcomponents.version>
     <apache.httpcomponents.core.version>4.4.3</apache.httpcomponents.core.version>
     <jackson.version>2.9.9</jackson.version>
-      <maven.exec.plugin.version>1.6.0</maven.exec.plugin.version>
+    <maven.exec.plugin.version>1.6.0</maven.exec.plugin.version>
+    <springboot.version>2.1.2.RELEASE</springboot.version>
   </properties>
 
     <licenses>
@@ -47,7 +48,29 @@
         </snapshotRepository>
     </distributionManagement>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <!-- Import dependency management from Spring Boot -->
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${springboot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
   <dependencies>
+      <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-web</artifactId>
+      </dependency>
+      <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-test</artifactId>
+          <scope>test</scope>
+      </dependency>
       <dependency>
           <groupId>com.github.priyeshkpandey</groupId>
           <artifactId>occ-model</artifactId>
@@ -68,6 +91,29 @@
           <groupId>com.fasterxml.jackson.core</groupId>
           <artifactId>jackson-databind</artifactId>
           <version>${jackson.version}</version>
+      </dependency>
+
+      <!-- LOGGING -->
+      <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-api</artifactId>
+      </dependency>
+      <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>jcl-over-slf4j</artifactId>
+      </dependency>
+      <dependency>
+          <groupId>ch.qos.logback</groupId>
+          <artifactId>logback-classic</artifactId>
+      </dependency>
+      <dependency>
+          <groupId>ch.qos.logback</groupId>
+          <artifactId>logback-core</artifactId>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-jul -->
+      <dependency>
+          <groupId>org.apache.logging.log4j</groupId>
+          <artifactId>log4j-jul</artifactId>
       </dependency>
 
   </dependencies>
@@ -154,6 +200,20 @@
                       <goals>
                           <goal>sign</goal>
                       </goals>
+                  </execution>
+              </executions>
+          </plugin>
+          <plugin>
+              <groupId>org.springframework.boot</groupId>
+              <artifactId>spring-boot-maven-plugin</artifactId>
+              <executions>
+                  <execution>
+                      <goals>
+                          <goal>repackage</goal>
+                      </goals>
+                      <configuration>
+                          <classifier>exec</classifier>
+                      </configuration>
                   </execution>
               </executions>
           </plugin>
