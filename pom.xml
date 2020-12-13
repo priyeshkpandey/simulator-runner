@@ -16,7 +16,7 @@
     <maven.compiler.target>1.8</maven.compiler.target>
     <apache.httpcomponents.version>4.5.6</apache.httpcomponents.version>
     <apache.httpcomponents.core.version>4.4.3</apache.httpcomponents.core.version>
-    <jackson.version>2.9.10.4</jackson.version>
+    <jackson.version>2.10.0.pr1</jackson.version>
     <maven.exec.plugin.version>1.6.0</maven.exec.plugin.version>
     <springboot.version>2.1.2.RELEASE</springboot.version>
   </properties>
